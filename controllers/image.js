@@ -16,7 +16,7 @@ const handleApiCall = (req, res) => {
 
 const handleImage = (req, res, db) => {
     const { accumulation } = req.body;
-    db('accumulation').where('accumulation', '=', accumulation)
+    db('accumulation').where('accumulation', '=', 0)
     .increment('accumulation', 1)
     .returning('accumulation')
     .then(accumulation => {
