@@ -26,7 +26,7 @@ const db = knex({
 app.use(cors())
 app.use(bodyParser.json());
     
-app.get('/', (req, res)=> { res.send('It is working' })
+app.get('/', (req, res)=> { res.send('It is working') })
  
 app.put('/image', (req, res) => { image.handleImage(req, res, db)})
 
