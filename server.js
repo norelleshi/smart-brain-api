@@ -26,15 +26,10 @@ app.use(bodyParser.json());
     
 app.get('/', (req, res)=> { res.send('It is working') })
  
-app.put('/image', (req, res) => { image.handleImage(req, res, db)})
+// app.put('/image', (req, res) => { image.handleImage(req, res, db)})
 
 app.post('/imageurl', (req, res) => { image.handleApiCall(req, res)})   
 
 app.listen(process.env.PORT || 3000, ()=> {
     console.log(`App is running on port ${process.env.PORT}`);
 })
-
-/*
-/ --> res = this is working
-/image --> PUT --> Clicking Accumulation
-*/
