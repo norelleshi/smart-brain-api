@@ -11,10 +11,19 @@ const handleApiCall = (req, res) => {
         .then(data => {
             res.json(data);
         })
-        .catch(err => res.status(400).json('unable to work with API'))
+        .catch(err => res.status(400).json('Unable to work with API'))
 }
 
-const handleImage = (req, res, db) => {}
+const handleImage = (req, res, db) => {
+    const { accumulation } = req.body;
+    db('users').where('accumulation', '=', accumulation)
+    .increment('accumulation', 1)
+    .returning('accumulation')
+    .then(accumulation => {
+        res.json(accumulation[0]);
+    })
+    .catch(err => res.status(400).json('Unable to get accumulations'))
+}
 
 module.exports = { 
     handleImage,
